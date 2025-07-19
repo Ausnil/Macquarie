@@ -1,0 +1,2 @@
+pip install --upgrade pandas openpyxl xlrd
+sudo apt install libxml2-dev libxslt1-dev zlib1g-dev

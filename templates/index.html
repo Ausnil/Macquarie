@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Customer Data Upload</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; }
+        h1 { color: #2c3e50; }
+        .error { color: red; }
+        .instructions { background: #f8f9fa; padding: 15px; border-radius: 5px; margin: 20px 0; }
+        .upload-box { border: 2px dashed #ccc; padding: 20px; text-align: center; margin: 20px 0; }
+    </style>
+</head>
+<body>
+    <h1>Upload Customer Data</h1>
+    
+    {% if error %}
+        <div class="error">{{ error }}</div>
+    {% endif %}
+    
+    <div class="instructions">
+        <h3>File Requirements:</h3>
+        <ul>
+            <li>Excel file with three sheets: Customers, Transactions, Products</li>
+            <li>Customers sheet must contain customer data in format: <br>                
+            </li>
+            <li>Transactions sheet must contain: transaction_id, customer_id, transaction_date, product_code, amount</li>
+            <li>Products sheet must contain: product_code, product_name, category, unit_price</li>
+        </ul>
+    </div>
+    
+    <div class="upload-box">
+        <form method="post" enctype="multipart/form-data">
+            <input type="file" name="file" accept=".xlsx,.xls" required>
+            <br><br>
+            <input type="submit" value="Upload and Process" style="padding: 10px 20px; background: #2c3e50; color: white; border: none; border-radius: 5px; cursor: pointer;">
+        </form>
+    </div>
+</body>
+</html>

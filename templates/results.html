@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Processing Results</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Processing Complete</h1>
+        <p>Original file: {{ original_filename }}</p>
+        
+        <div class="summary">
+            <h3>Key Insights:</h3>
+            <ul>
+                {% for item in summary %}
+                    <li>{{ item }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+        
+        <div class="downloads">
+            <h3>Download Results:</h3>
+            <a href="/download/{{ processed_filename }}" class="download-btn">Download Processed Data (Excel)</a>
+            <a href="/download/{{ report_filename }}" class="download-btn">Download Summary Report (Word)</a>
+        </div>
+        
+        <a href="/" class="back-btn">Upload Another File</a>
+    </div>
+</body>
+</html>
